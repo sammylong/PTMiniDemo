@@ -8,6 +8,23 @@
 
 #import "LineLayout.h"
 
+
 @implementation LineLayout
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.itemSize = CGSizeMake(176.0f, 214.0f);
+        self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        self.minimumInteritemSpacing = 44.0f;
+    }
+    return self;
+}
+
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)oldBounds
+{
+    return YES;
+}
+
 
 @end

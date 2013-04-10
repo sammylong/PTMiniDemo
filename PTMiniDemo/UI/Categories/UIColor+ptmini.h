@@ -10,4 +10,25 @@
 
 @interface UIColor (ptmini)
 
++ (UIColor *)piRedColor;
++ (UIColor *)piOrangeColor;
++ (UIColor *)piYellowColor;
++ (UIColor *)piGreenColor;
++ (UIColor *)piTealColor;
++ (UIColor *)piBlueColor;
+
++ (UIColor *)piLightBlueColor;
+
+// Used for the background
++ (UIColor *)piLightLightGrayColor;
+
++ (UIColor *)piPastGrayColor;
++ (UIColor *)piLightGrayColor;
++ (UIColor *)piGrayColor;
++ (UIColor *)piDarkGrayColor;
++ (UIColor *)piNightBlueColor;
++ (UIColor *)piNightDarkBlueColor;
+
+- (UIColor *)piDarkerColor;
+
 @end

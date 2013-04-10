@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "CatalogViewController.h"
+#import "LineLayout.h"
 
 @implementation AppDelegate
 
@@ -17,8 +19,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    
+    LineLayout *lineLayout = [[LineLayout alloc] init];
+    CatalogViewController *catalogViewController = [[CatalogViewController alloc] initWithCollectionViewLayout:lineLayout];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:catalogViewController];
+    navigationController.navigationBar.translucent = YES;
+    navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+    [navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBar.png"] forBarMetrics:UIBarMetricsDefault];
+    
+    self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     return YES;
 }
