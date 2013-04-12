@@ -7,6 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A516AB381716648900E67F96 /* FlagDefinitions.plist in Resources */ = {isa = PBXBuildFile; fileRef = A516AB371716648900E67F96 /* FlagDefinitions.plist */; };
+		A516AB3C1716803200E67F96 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = A516AB3B1716803200E67F96 /* Item.m */; };
+		A516AB401716878100E67F96 /* StudyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A516AB3F1716878100E67F96 /* StudyViewController.m */; };
+		A516AB4C17168BB400E67F96 /* Flag_of_Argentina.png in Resources */ = {isa = PBXBuildFile; fileRef = A516AB4217168BB400E67F96 /* Flag_of_Argentina.png */; };
+		A516AB4D17168BB400E67F96 /* Flag_of_Australia.png in Resources */ = {isa = PBXBuildFile; fileRef = A516AB4317168BB400E67F96 /* Flag_of_Australia.png */; };
+		A516AB4E17168BB400E67F96 /* Flag_of_Brazil.png in Resources */ = {isa = PBXBuildFile; fileRef = A516AB4417168BB400E67F96 /* Flag_of_Brazil.png */; };
+		A516AB4F17168BB400E67F96 /* Flag_of_Canada.png in Resources */ = {isa = PBXBuildFile; fileRef = A516AB4517168BB400E67F96 /* Flag_of_Canada.png */; };
+		A516AB5017168BB400E67F96 /* Flag_of_Denmark.png in Resources */ = {isa = PBXBuildFile; fileRef = A516AB4617168BB400E67F96 /* Flag_of_Denmark.png */; };
+		A516AB5117168BB400E67F96 /* Flag_of_Finland.png in Resources */ = {isa = PBXBuildFile; fileRef = A516AB4717168BB400E67F96 /* Flag_of_Finland.png */; };
+		A516AB5217168BB400E67F96 /* Flag_of_France.png in Resources */ = {isa = PBXBuildFile; fileRef = A516AB4817168BB400E67F96 /* Flag_of_France.png */; };
+		A516AB5317168BB400E67F96 /* Flag_of_Greece.png in Resources */ = {isa = PBXBuildFile; fileRef = A516AB4917168BB400E67F96 /* Flag_of_Greece.png */; };
+		A516AB5417168BB400E67F96 /* Flag_of_Hong_Kong.png in Resources */ = {isa = PBXBuildFile; fileRef = A516AB4A17168BB400E67F96 /* Flag_of_Hong_Kong.png */; };
+		A516AB5517168BB400E67F96 /* Flag_of_India.png in Resources */ = {isa = PBXBuildFile; fileRef = A516AB4B17168BB400E67F96 /* Flag_of_India.png */; };
+		A516AB5717168F6500E67F96 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A516AB5617168F6500E67F96 /* AVFoundation.framework */; };
+		A516AB66171693FB00E67F96 /* ALLog.m in Sources */ = {isa = PBXBuildFile; fileRef = A516AB5A171693FB00E67F96 /* ALLog.m */; };
+		A516AB67171693FB00E67F96 /* NSDate+Apexlearn.m in Sources */ = {isa = PBXBuildFile; fileRef = A516AB5F171693FB00E67F96 /* NSDate+Apexlearn.m */; };
+		A516AB68171693FB00E67F96 /* NSString+Apexlearn.m in Sources */ = {isa = PBXBuildFile; fileRef = A516AB61171693FB00E67F96 /* NSString+Apexlearn.m */; };
+		A516AB69171693FB00E67F96 /* NSURL+Apexlearn.m in Sources */ = {isa = PBXBuildFile; fileRef = A516AB63171693FB00E67F96 /* NSURL+Apexlearn.m */; };
+		A516AB6A171693FB00E67F96 /* UIViewController+ALModal.m in Sources */ = {isa = PBXBuildFile; fileRef = A516AB65171693FB00E67F96 /* UIViewController+ALModal.m */; };
+		A516AB6D17169FD200E67F96 /* ItemDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A516AB6C17169FD200E67F96 /* ItemDetailView.m */; };
+		A516AB701717B67600E67F96 /* UIImage+ptmini.m in Sources */ = {isa = PBXBuildFile; fileRef = A516AB6F1717B67600E67F96 /* UIImage+ptmini.m */; };
+		A516AB731717CB1F00E67F96 /* OptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A516AB721717CB1F00E67F96 /* OptionView.m */; };
+		A516AB761717E55200E67F96 /* StickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A516AB751717E55100E67F96 /* StickerView.m */; };
+		A516AB791717E9AE00E67F96 /* StickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A516AB781717E9AD00E67F96 /* StickerViewController.m */; };
 		A5B120C2171523250089A27B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B120C1171523250089A27B /* UIKit.framework */; };
 		A5B120C4171523250089A27B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B120C3171523250089A27B /* Foundation.framework */; };
 		A5B120C6171523250089A27B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B120C5171523250089A27B /* CoreGraphics.framework */; };
@@ -28,9 +52,50 @@
 		A5B12100171554470089A27B /* logoS@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5B120FC171554470089A27B /* logoS@2x.png */; };
 		A5B12101171554470089A27B /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = A5B120FD171554470089A27B /* navBar.png */; };
 		A5B12102171554470089A27B /* navBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5B120FE171554470089A27B /* navBar@2x.png */; };
+		A5B1210517155EC40089A27B /* CatalogDefinitions.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5B1210417155EC40089A27B /* CatalogDefinitions.plist */; };
+		A5B121091715624E0089A27B /* Catalog.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B121081715624D0089A27B /* Catalog.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A516AB371716648900E67F96 /* FlagDefinitions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FlagDefinitions.plist; sourceTree = "<group>"; };
+		A516AB3917167C7300E67F96 /* PTMiniDemo-v1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTMiniDemo-v1.xcdatamodel"; sourceTree = "<group>"; };
+		A516AB3A1716803200E67F96 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		A516AB3B1716803200E67F96 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		A516AB3E1716878100E67F96 /* StudyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudyViewController.h; sourceTree = "<group>"; };
+		A516AB3F1716878100E67F96 /* StudyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudyViewController.m; sourceTree = "<group>"; };
+		A516AB4217168BB400E67F96 /* Flag_of_Argentina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flag_of_Argentina.png; sourceTree = "<group>"; };
+		A516AB4317168BB400E67F96 /* Flag_of_Australia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flag_of_Australia.png; sourceTree = "<group>"; };
+		A516AB4417168BB400E67F96 /* Flag_of_Brazil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flag_of_Brazil.png; sourceTree = "<group>"; };
+		A516AB4517168BB400E67F96 /* Flag_of_Canada.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flag_of_Canada.png; sourceTree = "<group>"; };
+		A516AB4617168BB400E67F96 /* Flag_of_Denmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flag_of_Denmark.png; sourceTree = "<group>"; };
+		A516AB4717168BB400E67F96 /* Flag_of_Finland.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flag_of_Finland.png; sourceTree = "<group>"; };
+		A516AB4817168BB400E67F96 /* Flag_of_France.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flag_of_France.png; sourceTree = "<group>"; };
+		A516AB4917168BB400E67F96 /* Flag_of_Greece.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flag_of_Greece.png; sourceTree = "<group>"; };
+		A516AB4A17168BB400E67F96 /* Flag_of_Hong_Kong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flag_of_Hong_Kong.png; sourceTree = "<group>"; };
+		A516AB4B17168BB400E67F96 /* Flag_of_India.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flag_of_India.png; sourceTree = "<group>"; };
+		A516AB5617168F6500E67F96 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A516AB59171693FB00E67F96 /* ALLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLog.h; sourceTree = "<group>"; };
+		A516AB5A171693FB00E67F96 /* ALLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALLog.m; sourceTree = "<group>"; };
+		A516AB5B171693FB00E67F96 /* ALSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSingleton.h; sourceTree = "<group>"; };
+		A516AB5C171693FB00E67F96 /* ALTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTypes.h; sourceTree = "<group>"; };
+		A516AB5E171693FB00E67F96 /* NSDate+Apexlearn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Apexlearn.h"; sourceTree = "<group>"; };
+		A516AB5F171693FB00E67F96 /* NSDate+Apexlearn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Apexlearn.m"; sourceTree = "<group>"; };
+		A516AB60171693FB00E67F96 /* NSString+Apexlearn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Apexlearn.h"; sourceTree = "<group>"; };
+		A516AB61171693FB00E67F96 /* NSString+Apexlearn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Apexlearn.m"; sourceTree = "<group>"; };
+		A516AB62171693FB00E67F96 /* NSURL+Apexlearn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Apexlearn.h"; sourceTree = "<group>"; };
+		A516AB63171693FB00E67F96 /* NSURL+Apexlearn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Apexlearn.m"; sourceTree = "<group>"; };
+		A516AB64171693FB00E67F96 /* UIViewController+ALModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ALModal.h"; sourceTree = "<group>"; };
+		A516AB65171693FB00E67F96 /* UIViewController+ALModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ALModal.m"; sourceTree = "<group>"; };
+		A516AB6B17169FD200E67F96 /* ItemDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailView.h; sourceTree = "<group>"; };
+		A516AB6C17169FD200E67F96 /* ItemDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailView.m; sourceTree = "<group>"; };
+		A516AB6E1717B67600E67F96 /* UIImage+ptmini.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ptmini.h"; sourceTree = "<group>"; };
+		A516AB6F1717B67600E67F96 /* UIImage+ptmini.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ptmini.m"; sourceTree = "<group>"; };
+		A516AB711717CB1E00E67F96 /* OptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionView.h; sourceTree = "<group>"; };
+		A516AB721717CB1F00E67F96 /* OptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionView.m; sourceTree = "<group>"; };
+		A516AB741717E55100E67F96 /* StickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerView.h; sourceTree = "<group>"; };
+		A516AB751717E55100E67F96 /* StickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerView.m; sourceTree = "<group>"; };
+		A516AB771717E9AD00E67F96 /* StickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerViewController.h; sourceTree = "<group>"; };
+		A516AB781717E9AD00E67F96 /* StickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerViewController.m; sourceTree = "<group>"; };
 		A5B120BE171523250089A27B /* PTMiniDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PTMiniDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B120C1171523250089A27B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A5B120C3171523250089A27B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,6 +127,9 @@
 		A5B120FC171554470089A27B /* logoS@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logoS@2x.png"; sourceTree = "<group>"; };
 		A5B120FD171554470089A27B /* navBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar.png; sourceTree = "<group>"; };
 		A5B120FE171554470089A27B /* navBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navBar@2x.png"; sourceTree = "<group>"; };
+		A5B1210417155EC40089A27B /* CatalogDefinitions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CatalogDefinitions.plist; sourceTree = "<group>"; };
+		A5B121071715624C0089A27B /* Catalog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Catalog.h; sourceTree = "<group>"; };
+		A5B121081715624D0089A27B /* Catalog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Catalog.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A516AB5717168F6500E67F96 /* AVFoundation.framework in Frameworks */,
 				A5B120C2171523250089A27B /* UIKit.framework in Frameworks */,
 				A5B120C4171523250089A27B /* Foundation.framework in Frameworks */,
 				A5B120C6171523250089A27B /* CoreGraphics.framework in Frameworks */,
@@ -79,11 +148,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A516AB3D1716868400E67F96 /* Study */ = {
+			isa = PBXGroup;
+			children = (
+				A516AB3E1716878100E67F96 /* StudyViewController.h */,
+				A516AB3F1716878100E67F96 /* StudyViewController.m */,
+				A516AB6B17169FD200E67F96 /* ItemDetailView.h */,
+				A516AB6C17169FD200E67F96 /* ItemDetailView.m */,
+				A516AB711717CB1E00E67F96 /* OptionView.h */,
+				A516AB721717CB1F00E67F96 /* OptionView.m */,
+				A516AB771717E9AD00E67F96 /* StickerViewController.h */,
+				A516AB781717E9AD00E67F96 /* StickerViewController.m */,
+				A516AB741717E55100E67F96 /* StickerView.h */,
+				A516AB751717E55100E67F96 /* StickerView.m */,
+			);
+			path = Study;
+			sourceTree = "<group>";
+		};
+		A516AB4117168BB400E67F96 /* flags */ = {
+			isa = PBXGroup;
+			children = (
+				A516AB4217168BB400E67F96 /* Flag_of_Argentina.png */,
+				A516AB4317168BB400E67F96 /* Flag_of_Australia.png */,
+				A516AB4417168BB400E67F96 /* Flag_of_Brazil.png */,
+				A516AB4517168BB400E67F96 /* Flag_of_Canada.png */,
+				A516AB4617168BB400E67F96 /* Flag_of_Denmark.png */,
+				A516AB4717168BB400E67F96 /* Flag_of_Finland.png */,
+				A516AB4817168BB400E67F96 /* Flag_of_France.png */,
+				A516AB4917168BB400E67F96 /* Flag_of_Greece.png */,
+				A516AB4A17168BB400E67F96 /* Flag_of_Hong_Kong.png */,
+				A516AB4B17168BB400E67F96 /* Flag_of_India.png */,
+			);
+			path = flags;
+			sourceTree = "<group>";
+		};
+		A516AB58171693FB00E67F96 /* AL Library */ = {
+			isa = PBXGroup;
+			children = (
+				A516AB59171693FB00E67F96 /* ALLog.h */,
+				A516AB5A171693FB00E67F96 /* ALLog.m */,
+				A516AB5B171693FB00E67F96 /* ALSingleton.h */,
+				A516AB5C171693FB00E67F96 /* ALTypes.h */,
+				A516AB5D171693FB00E67F96 /* Categories */,
+			);
+			path = "AL Library";
+			sourceTree = "<group>";
+		};
+		A516AB5D171693FB00E67F96 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				A516AB5E171693FB00E67F96 /* NSDate+Apexlearn.h */,
+				A516AB5F171693FB00E67F96 /* NSDate+Apexlearn.m */,
+				A516AB60171693FB00E67F96 /* NSString+Apexlearn.h */,
+				A516AB61171693FB00E67F96 /* NSString+Apexlearn.m */,
+				A516AB62171693FB00E67F96 /* NSURL+Apexlearn.h */,
+				A516AB63171693FB00E67F96 /* NSURL+Apexlearn.m */,
+				A516AB64171693FB00E67F96 /* UIViewController+ALModal.h */,
+				A516AB65171693FB00E67F96 /* UIViewController+ALModal.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		A5B120B5171523250089A27B = {
 			isa = PBXGroup;
 			children = (
 				A5B120C9171523250089A27B /* PTMiniDemo */,
-				A5B120C0171523250089A27B /* Frameworks */,
 				A5B120BF171523250089A27B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,17 +228,23 @@
 		A5B120C0171523250089A27B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A516AB5617168F6500E67F96 /* AVFoundation.framework */,
 				A5B120C1171523250089A27B /* UIKit.framework */,
 				A5B120C3171523250089A27B /* Foundation.framework */,
 				A5B120C5171523250089A27B /* CoreGraphics.framework */,
 				A5B120C7171523250089A27B /* CoreData.framework */,
 			);
 			name = Frameworks;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		A5B120C9171523250089A27B /* PTMiniDemo */ = {
 			isa = PBXGroup;
 			children = (
+				A516AB58171693FB00E67F96 /* AL Library */,
+				A5B120C0171523250089A27B /* Frameworks */,
+				A5B12106171561550089A27B /* Model */,
+				A5B1210317155E830089A27B /* Config Files */,
 				A5B120FA171554470089A27B /* Media */,
 				A5B120F317154BF20089A27B /* SyncManagers */,
 				A5B120E3171524080089A27B /* UI */,
@@ -138,6 +273,7 @@
 		A5B120E3171524080089A27B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A516AB3D1716868400E67F96 /* Study */,
 				A5B120EE17152DAE0089A27B /* Categories */,
 				A5B120E4171524330089A27B /* Catalog */,
 			);
@@ -162,6 +298,8 @@
 			children = (
 				A5B120EF17152E0E0089A27B /* UIColor+ptmini.h */,
 				A5B120F017152E0E0089A27B /* UIColor+ptmini.m */,
+				A516AB6E1717B67600E67F96 /* UIImage+ptmini.h */,
+				A516AB6F1717B67600E67F96 /* UIImage+ptmini.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -180,12 +318,33 @@
 		A5B120FA171554470089A27B /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				A516AB4117168BB400E67F96 /* flags */,
 				A5B120FB171554470089A27B /* logoS.png */,
 				A5B120FC171554470089A27B /* logoS@2x.png */,
 				A5B120FD171554470089A27B /* navBar.png */,
 				A5B120FE171554470089A27B /* navBar@2x.png */,
 			);
 			path = Media;
+			sourceTree = "<group>";
+		};
+		A5B1210317155E830089A27B /* Config Files */ = {
+			isa = PBXGroup;
+			children = (
+				A5B1210417155EC40089A27B /* CatalogDefinitions.plist */,
+				A516AB371716648900E67F96 /* FlagDefinitions.plist */,
+			);
+			path = "Config Files";
+			sourceTree = "<group>";
+		};
+		A5B12106171561550089A27B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A5B121071715624C0089A27B /* Catalog.h */,
+				A5B121081715624D0089A27B /* Catalog.m */,
+				A516AB3A1716803200E67F96 /* Item.h */,
+				A516AB3B1716803200E67F96 /* Item.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +406,18 @@
 				A5B12100171554470089A27B /* logoS@2x.png in Resources */,
 				A5B12101171554470089A27B /* navBar.png in Resources */,
 				A5B12102171554470089A27B /* navBar@2x.png in Resources */,
+				A5B1210517155EC40089A27B /* CatalogDefinitions.plist in Resources */,
+				A516AB381716648900E67F96 /* FlagDefinitions.plist in Resources */,
+				A516AB4C17168BB400E67F96 /* Flag_of_Argentina.png in Resources */,
+				A516AB4D17168BB400E67F96 /* Flag_of_Australia.png in Resources */,
+				A516AB4E17168BB400E67F96 /* Flag_of_Brazil.png in Resources */,
+				A516AB4F17168BB400E67F96 /* Flag_of_Canada.png in Resources */,
+				A516AB5017168BB400E67F96 /* Flag_of_Denmark.png in Resources */,
+				A516AB5117168BB400E67F96 /* Flag_of_Finland.png in Resources */,
+				A516AB5217168BB400E67F96 /* Flag_of_France.png in Resources */,
+				A516AB5317168BB400E67F96 /* Flag_of_Greece.png in Resources */,
+				A516AB5417168BB400E67F96 /* Flag_of_Hong_Kong.png in Resources */,
+				A516AB5517168BB400E67F96 /* Flag_of_India.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +437,19 @@
 				A5B120F117152E0E0089A27B /* UIColor+ptmini.m in Sources */,
 				A5B120F617154C970089A27B /* SyncManager.m in Sources */,
 				A5B120F917154F700089A27B /* InitialDataSyncManager.m in Sources */,
+				A5B121091715624E0089A27B /* Catalog.m in Sources */,
+				A516AB3C1716803200E67F96 /* Item.m in Sources */,
+				A516AB401716878100E67F96 /* StudyViewController.m in Sources */,
+				A516AB66171693FB00E67F96 /* ALLog.m in Sources */,
+				A516AB67171693FB00E67F96 /* NSDate+Apexlearn.m in Sources */,
+				A516AB68171693FB00E67F96 /* NSString+Apexlearn.m in Sources */,
+				A516AB69171693FB00E67F96 /* NSURL+Apexlearn.m in Sources */,
+				A516AB6A171693FB00E67F96 /* UIViewController+ALModal.m in Sources */,
+				A516AB6D17169FD200E67F96 /* ItemDetailView.m in Sources */,
+				A516AB701717B67600E67F96 /* UIImage+ptmini.m in Sources */,
+				A516AB731717CB1F00E67F96 /* OptionView.m in Sources */,
+				A516AB761717E55200E67F96 /* StickerView.m in Sources */,
+				A516AB791717E9AE00E67F96 /* StickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +567,7 @@
 				A5B120E2171523250089A27B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
@@ -390,9 +575,10 @@
 		A5B120DB171523250089A27B /* PTMiniDemo.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				A516AB3917167C7300E67F96 /* PTMiniDemo-v1.xcdatamodel */,
 				A5B120DC171523250089A27B /* PTMiniDemo.xcdatamodel */,
 			);
-			currentVersion = A5B120DC171523250089A27B /* PTMiniDemo.xcdatamodel */;
+			currentVersion = A516AB3917167C7300E67F96 /* PTMiniDemo-v1.xcdatamodel */;
 			path = PTMiniDemo.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

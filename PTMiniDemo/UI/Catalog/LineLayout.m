@@ -16,7 +16,7 @@
     if (self) {
         self.itemSize = CGSizeMake(176.0f, 214.0f);
         self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        self.minimumInteritemSpacing = 44.0f;
+        self.minimumLineSpacing = 34.0f;
     }
     return self;
 }

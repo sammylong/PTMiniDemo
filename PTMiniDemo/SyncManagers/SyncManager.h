@@ -10,7 +10,6 @@
 
 @interface SyncManager : NSObject
 
-- (BOOL)save:(NSError **)error;
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 

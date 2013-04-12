@@ -10,8 +10,12 @@
 #import "CatalogViewCell.h"
 #import "UIColor+ptmini.h"
 #import "LineLayout.h"
+#import "Catalog.h"
+#import "StickerViewController.h"
+#import "UIViewController+ALModal.h"
 
-@interface CatalogViewController ()
+@interface CatalogViewController () <NSFetchedResultsControllerDelegate>
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
@@ -36,26 +40,93 @@ static NSString *sCellReuseIdentifier = @"CatalogViewCell";
     lineLayout.sectionInset = UIEdgeInsetsMake(top, left, bottom, right);
     
     self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.showsHorizontalScrollIndicator = NO;
     [self.collectionView registerClass:[CatalogViewCell class] forCellWithReuseIdentifier:sCellReuseIdentifier];
 }
 
+- (NSFetchedResultsController *)fetchedResultsController {
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Catalog"];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO]];
+    fetchRequest.sortDescriptors = sortDescriptors;
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                                                managedObjectContext:_managedObjectContext
+                                                                                                  sectionNameKeyPath:nil
+                                                                                                           cacheName:nil];
+    aFetchedResultsController.delegate = self;
+    self.fetchedResultsController = aFetchedResultsController;
+    NSError *error = nil;
+	if (![self.fetchedResultsController performFetch:&error]) {
+        NSLog(@"Error fetching catalogs %@ - %@", error, error.userInfo);
+        self.fetchedResultsController.delegate = nil;
+        self.fetchedResultsController = nil;
+    }
+    return _fetchedResultsController;
+}
+
+
+#pragma mark NSFetchedResultsControllerDelegate
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    // TODO
+}
+
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    // TODO
+}
+
+- (void)controller:(NSFetchedResultsController *)controller
+  didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex
+     forChangeType:(NSFetchedResultsChangeType)type {
+    // TODO
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.collectionView reloadData];
+}
+
+
+#pragma mark UICollectionViewDataSource
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return [[self.fetchedResultsController sections] count];
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 12;
+    id<NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController.sections objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CatalogViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:sCellReuseIdentifier forIndexPath:indexPath];
-    if (indexPath.row == 0) {
-        cell.title = @"數字篇";
-        cell.titleColor = [UIColor piRedColor];
-        cell.borderColor = [UIColor piGreenColor];
-        
-    } else if (indexPath.row == 1) {
-        cell.title = @"國旗篇";
-        cell.titleColor = [UIColor piNightBlueColor];
-        cell.borderColor = [UIColor piLightBlueColor];
+    Catalog *catalog = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.title = catalog.name;
+    cell.titleColor = [UIColor piRedColor];
+    cell.borderColor = [UIColor piNightBlueColor];
+    if (catalog.imageName != nil) {
+        cell.image = [UIImage imageNamed:catalog.imageName];
     }
     return cell;
+}
+
+
+#pragma mark UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    // open detail view
+    Catalog *catalog = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    StickerViewController *stickerViewController = [[StickerViewController alloc] initWithCatalog:catalog];
+    stickerViewController.cancelBlock = ^ {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    };
+    [self presentViewController:stickerViewController animated:YES completion:nil];
 }
 
 @end

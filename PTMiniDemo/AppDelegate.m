@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "CatalogViewController.h"
 #import "LineLayout.h"
+#import "InitialDataSyncManager.h"
 
 @implementation AppDelegate
 
@@ -18,10 +19,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self initializeSyncManagers];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     LineLayout *lineLayout = [[LineLayout alloc] init];
     CatalogViewController *catalogViewController = [[CatalogViewController alloc] initWithCollectionViewLayout:lineLayout];
+    catalogViewController.managedObjectContext = self.managedObjectContext;
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:catalogViewController];
     navigationController.navigationBar.translucent = YES;
     navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
@@ -30,6 +33,12 @@
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)initializeSyncManagers {
+    InitialDataSyncManager *initialDataSyncManager = [[InitialDataSyncManager alloc] init];
+    initialDataSyncManager.managedObjectContext = self.managedObjectContext;
+    [initialDataSyncManager syncInitialData];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

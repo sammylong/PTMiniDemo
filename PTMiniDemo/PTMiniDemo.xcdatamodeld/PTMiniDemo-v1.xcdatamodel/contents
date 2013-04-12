@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Catalog" representedClassName="Catalog" syncable="YES">
+        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" minValueString="1" maxValueString="20" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" minCount="1" deletionRule="Cascade" destinationEntity="Item" inverseName="catalog" inverseEntity="Item" syncable="YES"/>
+    </entity>
+    <entity name="Item" representedClassName="Item" syncable="YES">
+        <attribute name="answer" attributeType="String" syncable="YES"/>
+        <attribute name="audioName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastStudiedDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="catalog" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Catalog" inverseName="items" inverseEntity="Catalog" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Catalog" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Item" positionX="160" positionY="192" width="128" height="135"/>
+    </elements>
+</model>
