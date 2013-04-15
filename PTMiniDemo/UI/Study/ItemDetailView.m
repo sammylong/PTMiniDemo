@@ -96,6 +96,20 @@
     }
 }
 
+- (void)setAnswerView:(OptionView *)answerView {
+    _answerView = answerView;
+    if (answerView.superview != self) {
+        // frame
+        CGPoint center = CGPointMake(  CGRectGetMidX(self.bounds)
+                                     , 60.0f);
+        answerView.center = center;
+        [answerView showInView:self animated:NO duration:0.0 delay:0.0 completion:nil];
+        NSLog(@"added answerView %@ at %@", answerView, answerView.superview);
+        
+        
+        
+    }
+}
 
 #pragma mark Public
 

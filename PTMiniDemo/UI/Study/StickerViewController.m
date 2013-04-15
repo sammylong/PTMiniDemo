@@ -38,24 +38,27 @@ static const int cNumberOfOption = 4;
     CGFloat offset = 20.0f;
     CGFloat availableHeight = CGRectGetMinY(self.itemDetailView.frame) - offset * 2.0f;
     CGFloat verticalSpacing = roundf(availableHeight/4.0f);
-    CGSize size = CGSizeMake(20.0f, 40.0f);
-    CGFloat y = - roundf(size.height / 2.0f);
+    CGFloat y = 20.0f;
     NSMutableArray *stickerViews = [NSMutableArray arrayWithCapacity:cNumberOfOption];
     for (int i=0; i<cNumberOfOption; i++) {
         // gen option view
-        StickerView *stickerView = [[StickerView alloc] initWithFrame:CGRectMake( 0.0f
-                                                                                 ,0.0f
-                                                                                 ,size.width
-                                                                                 ,size.height)];
+        StickerView *stickerView = [[StickerView alloc] init];
         stickerView.delegate = self;
         stickerView.index = i;
         stickerView.text = [self.options objectAtIndex:i];
         stickerView.backgroundColor = [UIColor whiteColor];
-        CGFloat x = roundf(CGRectGetWidth(self.view.bounds) * 0.3f);
-        int randInt = - 15 + arc4random_uniform(30);
-        x += (CGFloat)randInt ;
-        y += verticalSpacing + (CGFloat)arc4random_uniform(10);
-        stickerView.center = CGPointMake(x, y);
+        //CGFloat x = roundf(CGRectGetWidth(self.view.bounds) * 0.3f);
+        //int randInt = - 15 + arc4random_uniform(30);
+        //x += (CGFloat)randInt ;
+        // TODO fix this magic number
+        // so that when it is fully expanded, it appears in the middle
+        CGFloat x = 80.0f;
+        CGRect frame = stickerView.frame;
+        frame.origin = CGPointMake(x, y);
+        stickerView.frame = frame;
+        // increment y for the next item
+        y += verticalSpacing;// + (CGFloat)arc4random_uniform(10);
+
         [stickerView showInView:self.view animated:YES duration:0.2 delay:0.0 completion:nil];
         [stickerViews addObject:stickerView];
     }

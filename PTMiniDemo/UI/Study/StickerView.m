@@ -17,9 +17,12 @@
 
 @implementation StickerView
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
+- (id)init {
+
+    self = [super initWithFrame:CGRectMake(  0.0f
+                                           , 0.0f
+                                           , 20.0f
+                                           , 40.0f)];
     if (self) {
         self.layer.shadowColor = [UIColor darkGrayColor].CGColor;
         self.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
@@ -45,6 +48,7 @@
         completion:(ALCompletionBlock)completionBlock {
     // TODO
     [view addSubview:self];
+    self.alpha = 1.0f;
     if (animated) {
         [UIView animateWithDuration:duration
                               delay:delay

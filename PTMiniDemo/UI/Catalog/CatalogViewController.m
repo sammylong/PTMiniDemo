@@ -124,6 +124,8 @@ static NSString *sCellReuseIdentifier = @"CatalogViewCell";
     Catalog *catalog = [self.fetchedResultsController objectAtIndexPath:indexPath];
     StickerViewController *stickerViewController = [[StickerViewController alloc] initWithCatalog:catalog];
     stickerViewController.cancelBlock = ^ {
+        NSError __autoreleasing *error = nil;
+        [self.managedObjectContext save:&error];
         [self dismissViewControllerAnimated:YES completion:nil];
     };
     [self presentViewController:stickerViewController animated:YES completion:nil];

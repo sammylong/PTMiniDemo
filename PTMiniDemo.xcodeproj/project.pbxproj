@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A50912FA171C5249002972CB /* NSMutableArray+Apexlearn.m in Sources */ = {isa = PBXBuildFile; fileRef = A50912F9171C5249002972CB /* NSMutableArray+Apexlearn.m */; };
 		A516AB381716648900E67F96 /* FlagDefinitions.plist in Resources */ = {isa = PBXBuildFile; fileRef = A516AB371716648900E67F96 /* FlagDefinitions.plist */; };
 		A516AB3C1716803200E67F96 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = A516AB3B1716803200E67F96 /* Item.m */; };
 		A516AB401716878100E67F96 /* StudyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A516AB3F1716878100E67F96 /* StudyViewController.m */; };
@@ -57,8 +58,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A50912F8171C5249002972CB /* NSMutableArray+Apexlearn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Apexlearn.h"; sourceTree = "<group>"; };
+		A50912F9171C5249002972CB /* NSMutableArray+Apexlearn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Apexlearn.m"; sourceTree = "<group>"; };
 		A516AB371716648900E67F96 /* FlagDefinitions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FlagDefinitions.plist; sourceTree = "<group>"; };
-		A516AB3917167C7300E67F96 /* PTMiniDemo-v1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTMiniDemo-v1.xcdatamodel"; sourceTree = "<group>"; };
+		A516AB3917167C7300E67F96 /* PTMiniDemo-v1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "PTMiniDemo-v1.xcdatamodel"; sourceTree = "<group>"; };
 		A516AB3A1716803200E67F96 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		A516AB3B1716803200E67F96 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		A516AB3E1716878100E67F96 /* StudyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudyViewController.h; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				A516AB63171693FB00E67F96 /* NSURL+Apexlearn.m */,
 				A516AB64171693FB00E67F96 /* UIViewController+ALModal.h */,
 				A516AB65171693FB00E67F96 /* UIViewController+ALModal.m */,
+				A50912F8171C5249002972CB /* NSMutableArray+Apexlearn.h */,
+				A50912F9171C5249002972CB /* NSMutableArray+Apexlearn.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -450,6 +455,7 @@
 				A516AB731717CB1F00E67F96 /* OptionView.m in Sources */,
 				A516AB761717E55200E67F96 /* StickerView.m in Sources */,
 				A516AB791717E9AE00E67F96 /* StickerViewController.m in Sources */,
+				A50912FA171C5249002972CB /* NSMutableArray+Apexlearn.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

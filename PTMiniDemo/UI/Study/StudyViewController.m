@@ -10,6 +10,7 @@
 #import "Catalog.h"
 #import "UIColor+ptmini.h"
 #import "Item.h"
+#import "NSMutableArray+Apexlearn.h"
 
 
 static const NSTimeInterval cCuedTime = 2.0;
@@ -93,6 +94,7 @@ static const int cNumberOfOption = 4;
     [optionArray addObject:self.item.answer];
     // rand other options
     NSMutableArray *items = [[_catalog.items allObjects] mutableCopy];
+    [items removeObject:self.item];
     for (int i=0; i<cNumberOfOption -1; i++) {
         int randIndex = arc4random_uniform([items count]);
         Item *item = [items objectAtIndex:randIndex];
@@ -100,6 +102,7 @@ static const int cNumberOfOption = 4;
         [items removeObject:item];
     }
     // TODO random shuffle this optionArray before assign
+    [optionArray shuffle];
     self.options = optionArray;
 }
 
@@ -214,11 +217,23 @@ static const int cNumberOfOption = 4;
     } else {
         // vibrate and slide out the item detail view
         StudyViewController *weakSelf = self;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.4 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            [weakSelf openItemDetailViewAnimated:YES];
-            // TODO animation?
-            self.itemDetailView.answerView.text = self.item.answer;
-        });
+        // dismiss the wrong selection
+        OptionView *optionView = [self.optionViews objectAtIndex:index];
+        OptionView *answerView = nil;
+        for (OptionView *ov in self.optionViews) {
+            if ([ov.text isEqualToString:self.item.answer]) {
+                answerView = ov;
+                break;
+            }
+        }
+        [optionView dismiss:YES
+                   duration:0.4
+                      delay:0.2 // after the options are dismissed
+            completionBlock:^{
+                // set answer view
+                weakSelf.itemDetailView.answerView = answerView;
+                [weakSelf openItemDetailViewAnimated:YES];
+            }];
     }
 }
 
