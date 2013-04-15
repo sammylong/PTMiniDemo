@@ -49,6 +49,7 @@ static const int cNumberOfOption = 4;
                                                                                  ,size.height)];
         stickerView.delegate = self;
         stickerView.index = i;
+        stickerView.text = [self.options objectAtIndex:i];
         stickerView.backgroundColor = [UIColor whiteColor];
         CGFloat x = roundf(CGRectGetWidth(self.view.bounds) * 0.3f);
         int randInt = - 15 + arc4random_uniform(30);

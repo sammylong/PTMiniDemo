@@ -71,6 +71,8 @@ static const int cNumberOfOption = 4;
         [self.itemDetailView.answerView removeFromSuperview];
         // get an object from items
         Item *item = [self.items lastObject];
+        self.item = item;
+        self.item.lastStudiedDate = [NSDate date];
         [self.items removeObject:item];
         [self.itemDetailView setImage: [UIImage imageNamed:item.imageName]
                              animated: animated];
@@ -86,6 +88,19 @@ static const int cNumberOfOption = 4;
 - (void)presentOptionViewsAnimated:(BOOL)animated {
     // child class implement
     self.mode = eStudyViewModeRecall;
+    // set options
+    NSMutableArray *optionArray = [NSMutableArray arrayWithCapacity:cNumberOfOption];
+    [optionArray addObject:self.item.answer];
+    // rand other options
+    NSMutableArray *items = [[_catalog.items allObjects] mutableCopy];
+    for (int i=0; i<cNumberOfOption -1; i++) {
+        int randIndex = arc4random_uniform([items count]);
+        Item *item = [items objectAtIndex:randIndex];
+        [optionArray addObject:item.answer];
+        [items removeObject:item];
+    }
+    // TODO random shuffle this optionArray before assign
+    self.options = optionArray;
 }
 
 - (void)openItemDetailViewAnimated:(BOOL)animated {
@@ -107,6 +122,12 @@ static const int cNumberOfOption = 4;
 }
 
 - (void)dockItemDetailViewAnimated:(BOOL)animated {
+    StudyViewController *weakSelf = self;
+    ALAnimationCompletionBlock completionBlock = ^(BOOL finished) {
+        if (finished) {
+            [weakSelf presentNextItemAnimated:animated];
+        }
+    };
     if (animated) {
         NSTimeInterval duration = cItemDetailViewAnimationDuration;
         [UIView animateWithDuration:duration
@@ -115,11 +136,13 @@ static const int cNumberOfOption = 4;
                              frame.origin.y = CGRectGetHeight(self.view.bounds) * cItemDetailViewRelativePositionOnDock;
                              self.itemDetailView.frame = frame;
                          }
-                         completion:nil];
+                         completion:completionBlock];
     } else {
         CGRect frame = self.itemDetailView.frame;
         frame.origin.y = CGRectGetHeight(self.view.bounds) * cItemDetailViewRelativePositionOnDock;
         self.itemDetailView.frame = frame;
+        // present next item
+        completionBlock(YES);
     }
 }
 
@@ -176,7 +199,8 @@ static const int cNumberOfOption = 4;
 
 - (void)didSelectOptionWithIndex:(int)index {
     // correct
-    BOOL correct = YES;
+    NSString *selection = [self.options objectAtIndex:index];
+    BOOL correct =  [selection isEqualToString:self.item.answer];
     if (correct) {
         // bounce the sticker
         StudyViewController *weakSelf = self;
@@ -192,6 +216,8 @@ static const int cNumberOfOption = 4;
         StudyViewController *weakSelf = self;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.4 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
             [weakSelf openItemDetailViewAnimated:YES];
+            // TODO animation?
+            self.itemDetailView.answerView.text = self.item.answer;
         });
     }
 }

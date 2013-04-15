@@ -13,4 +13,6 @@ typedef void(^ALCompletionBlock)(void);
 typedef void(^ALSuccessBlock)(void);
 typedef void(^ALArraySuccessBlock)(NSArray * array);
 typedef void(^ALFailureBlock)(NSError * error);
+typedef void(^ALAnimationCompletionBlock)(BOOL finished);
+
 #endif

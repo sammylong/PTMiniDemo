@@ -14,6 +14,7 @@
 
 @property (nonatomic, weak)id<OptionViewDelegate> delegate;
 @property (nonatomic) NSInteger index;
+@property (nonatomic, strong) NSString *text;
 @property (nonatomic) BOOL locked;
 
 - (void)showInView:(UIView *)view

@@ -10,8 +10,7 @@
 #import "UIColor+ptmini.h"
 #import "UIImage+ptmini.h"
 #import <AVFoundation/AVFoundation.h>
-
-typedef void(^ALAnimationCompletionBlock)(BOOL finished);
+#import "OptionView.h"
 
 @interface ItemDetailView () {
     

@@ -18,11 +18,14 @@ typedef enum {
 } eStudyViewMode;
 
 @class Catalog;
+@class Item;
 
 @interface StudyViewController : UIViewController <OptionViewDelegate>
 
 @property (nonatomic) eStudyViewMode mode;
 @property (nonatomic, strong) ItemDetailView *itemDetailView;
+@property (nonatomic, strong) Item *item;
+@property (nonatomic, strong) NSArray *options;
 @property (nonatomic, strong) NSArray *optionViews;
 
 - (id)initWithCatalog:(Catalog *)catalog;

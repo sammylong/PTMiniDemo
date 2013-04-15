@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @protocol ItemDetailViewDelegate;
+@class OptionView;
 
 @interface ItemDetailView : UIView
 
 @property (nonatomic, weak) id<ItemDetailViewDelegate> delegate;
 @property (nonatomic, strong) UIImage *image;
-@property (nonatomic, strong) UIView *answerView;
+@property (nonatomic, strong) OptionView *answerView;
 
 - (void)setImage:(UIImage *)image animated:(BOOL)animated;
 - (void)bounceCircleWithCompletion:(ALCompletionBlock)completionBlock;

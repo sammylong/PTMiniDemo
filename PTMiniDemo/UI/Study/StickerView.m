@@ -9,6 +9,12 @@
 #import "StickerView.h"
 #import <AVFoundation/AVFoundation.h>
 
+@interface StickerView ()
+
+@property (nonatomic, strong) UILabel *textLabel;
+@end
+
+
 @implementation StickerView
 
 - (id)initWithFrame:(CGRect)frame
@@ -18,8 +24,18 @@
         self.layer.shadowColor = [UIColor darkGrayColor].CGColor;
         self.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
         self.layer.shadowRadius = 2.0f;
+        
+        _textLabel = [[UILabel alloc] init];
+        _textLabel.backgroundColor = [UIColor clearColor];
+        [self addSubview:_textLabel];
     }
     return self;
+}
+
+- (void)setText:(NSString *)text {
+    [super setText:text];
+    _textLabel.text = text;
+    [_textLabel sizeToFit];
 }
 
 - (void)showInView:(UIView *)view
