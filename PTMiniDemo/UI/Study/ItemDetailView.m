@@ -11,10 +11,13 @@
 #import "UIImage+ptmini.h"
 #import <AVFoundation/AVFoundation.h>
 #import "OptionView.h"
+#import <AVFoundation/AVFoundation.h>
 
-@interface ItemDetailView () {
-    
+
+@interface ItemDetailView () <AVAudioPlayerDelegate> {
+    AVAudioPlayer *_audioPlayer;
 }
+
 @property (nonatomic, strong) UIView *circleView;
 @property (nonatomic, strong) UIImageView *imageView;
 
@@ -47,6 +50,9 @@
     }
     return self;
 }
+
+
+#pragma mark Public
 
 - (void)setImage:(UIImage *)image animated:(BOOL)animated {
     if (animated) {
@@ -96,22 +102,47 @@
     }
 }
 
+- (void)setPlaceHolder:(UIView *)placeHolder {
+    [_placeHolder removeFromSuperview];
+    _placeHolder = placeHolder;
+    [self addSubview:placeHolder];
+}
+
 - (void)setAnswerView:(OptionView *)answerView {
+    [_answerView removeFromSuperview];
     _answerView = answerView;
     if (answerView.superview != self) {
-        // frame
-        CGPoint center = CGPointMake(  CGRectGetMidX(self.bounds)
-                                     , 60.0f);
-        answerView.center = center;
+        answerView.center = self.placeHolder.center;
         [answerView showInView:self animated:NO duration:0.0 delay:0.0 completion:nil];
-        NSLog(@"added answerView %@ at %@", answerView, answerView.superview);
-        
-        
-        
     }
 }
 
-#pragma mark Public
+- (void)play {
+    if (self.audioName) {
+        // Init audio with playback capability
+        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+        [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+        NSArray *comps = [self.audioName componentsSeparatedByString:@"."];
+        if ([comps count] != 2) {
+            return;
+        }
+        NSString *name = [comps objectAtIndex:0];
+        NSString *extension = [comps objectAtIndex:1];
+        NSURL *url = [[NSBundle mainBundle] URLForResource:name withExtension:extension];
+        NSError *error = nil;
+        _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+        _audioPlayer.delegate = self;
+        if (error) {
+            NSLog(@"Error init audio player: %@ - %@)" , error, error.userInfo);
+            return;
+        }
+        _audioPlayer.numberOfLoops = 0;
+        if ([_audioPlayer prepareToPlay]) {
+            [_audioPlayer play];
+        }
+
+    }
+}
 
 - (void)bounceCircleWithCompletion:(ALCompletionBlock)completionBlock {
 /*
@@ -188,7 +219,7 @@
 }
 
 
-#pragma mark Module
+#pragma mark Animation Module
 
 - (void)resizeCircleToScale:(CGPoint)scale
                    duration:(NSTimeInterval)duration
@@ -200,6 +231,22 @@
                      animations:^{
                          self.circleView.transform = CGAffineTransformMakeScale(scale.x, scale.y);
                      } completion:completionBlock];
+}
+
+
+#pragma mark AV audio player delegate
+
+- (void)audioPlayerEndInterruption:(AVAudioPlayer *)player withOptions:(NSUInteger)flags {
+    if (flags == AVAudioSessionInterruptionOptionShouldResume) {
+        [player play];
+    }
+}
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    if (flag) {
+        // inform delegate
+        [self.delegate itemDetailViewDidFinishPlaying:self];
+    }
 }
 
 @end

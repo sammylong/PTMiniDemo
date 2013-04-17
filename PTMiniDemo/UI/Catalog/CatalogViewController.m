@@ -11,8 +11,16 @@
 #import "UIColor+ptmini.h"
 #import "LineLayout.h"
 #import "Catalog.h"
-#import "StickerViewController.h"
 #import "UIViewController+ALModal.h"
+#import "StickerViewController.h"
+#import "BubbleViewController.h"
+
+// TODO should not do this in production
+typedef enum {
+      eCatalogNumbers
+    , eCatalogFlags
+    , eCatalogCount
+} eCatalog;
 
 @interface CatalogViewController () <NSFetchedResultsControllerDelegate>
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
@@ -122,13 +130,31 @@ static NSString *sCellReuseIdentifier = @"CatalogViewCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     // open detail view
     Catalog *catalog = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    StickerViewController *stickerViewController = [[StickerViewController alloc] initWithCatalog:catalog];
-    stickerViewController.cancelBlock = ^ {
-        NSError __autoreleasing *error = nil;
-        [self.managedObjectContext save:&error];
-        [self dismissViewControllerAnimated:YES completion:nil];
-    };
-    [self presentViewController:stickerViewController animated:YES completion:nil];
+    StudyViewController *studyViewController = nil;
+    switch (indexPath.row) {
+        case eCatalogNumbers: {
+            BubbleViewController *bubbleViewController = [[BubbleViewController alloc] initWithCatalog:catalog];
+            bubbleViewController.presentOptionsAfterPlayingAudio = YES;
+            studyViewController = bubbleViewController;
+            break;
+        }
+        case eCatalogFlags: {
+            StickerViewController *stickerViewController = [[StickerViewController alloc] initWithCatalog:catalog];
+            stickerViewController.cuedTime = 1.0;
+            studyViewController = stickerViewController;
+            break;
+        }
+        default:
+            break;
+    }
+    if (studyViewController) {
+        studyViewController.cancelBlock = ^ {
+            NSError __autoreleasing *error = nil;
+            [self.managedObjectContext save:&error];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        };
+        [self presentViewController:studyViewController animated:YES completion:nil];
+    }
 }
 
 @end

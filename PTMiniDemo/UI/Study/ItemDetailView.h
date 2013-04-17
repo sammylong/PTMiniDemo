@@ -15,9 +15,12 @@
 
 @property (nonatomic, weak) id<ItemDetailViewDelegate> delegate;
 @property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) NSString *audioName;
+@property (nonatomic, strong) UIView *placeHolder;
 @property (nonatomic, strong) OptionView *answerView;
 
 - (void)setImage:(UIImage *)image animated:(BOOL)animated;
+- (void)play;
 - (void)bounceCircleWithCompletion:(ALCompletionBlock)completionBlock;
 
 @end
@@ -26,5 +29,5 @@
 
 - (void)itemDetailViewSwipedUp:(ItemDetailView *)detailView;
 - (void)itemDetailViewSwipedDown:(ItemDetailView *)detailView;
-
+- (void)itemDetailViewDidFinishPlaying:(ItemDetailView *)detailView;
 @end

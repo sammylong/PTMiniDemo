@@ -10,6 +10,24 @@
 
 @implementation UIImage (ptmini)
 
+// from parrottalks
++(UIImage *)piRoundedRectImageWithSize:(CGSize)size
+                             fillColor:(UIColor *)fillColor
+                          cornerRadius:(CGFloat)radius {
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
+    CGRect rect = CGRectZero;
+    rect.size = size;
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:rect
+                                                    cornerRadius:radius];
+    [fillColor setFill];
+    [path fill];
+    // TODO shadow
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+// from lark lib
 + (UIImage *)piStretchableRoundedRectImageWithCornerRadius:(CGFloat)cornerRadius
                                                  lineWidth:(CGFloat)lineWidth
                                                strokeColor:(UIColor *)strokeColor
@@ -38,7 +56,7 @@
 	UIGraphicsEndImageContext();
     
 	if ([image respondsToSelector:@selector(resizableImageWithCapInsets:)]) {
-		image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(cornerRadius, cornerRadius, cornerRadius, cornerRadius)];
+		image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(cornerRadius, cornerRadius, cornerRadius, cornerRadius) resizingMode:UIImageResizingModeStretch];
 	} else {
 		image = [image stretchableImageWithLeftCapWidth:cornerRadius topCapHeight:cornerRadius];
 	}

@@ -9,11 +9,8 @@
 #import "StickerView.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface StickerView ()
-
-@property (nonatomic, strong) UILabel *textLabel;
-@end
-
+static const CGFloat cDefaultWidth  = 160.0f;
+static const CGFloat cDefaultHeight = 40.0f;
 
 @implementation StickerView
 
@@ -22,23 +19,13 @@
     self = [super initWithFrame:CGRectMake(  0.0f
                                            , 0.0f
                                            , 20.0f
-                                           , 40.0f)];
+                                           , cDefaultHeight)];
     if (self) {
         self.layer.shadowColor = [UIColor darkGrayColor].CGColor;
         self.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
         self.layer.shadowRadius = 2.0f;
-        
-        _textLabel = [[UILabel alloc] init];
-        _textLabel.backgroundColor = [UIColor clearColor];
-        [self addSubview:_textLabel];
     }
     return self;
-}
-
-- (void)setText:(NSString *)text {
-    [super setText:text];
-    _textLabel.text = text;
-    [_textLabel sizeToFit];
 }
 
 - (void)showInView:(UIView *)view
@@ -56,7 +43,7 @@
                          animations:^{
                              // expand self's frame
                              CGRect frame = self.frame;
-                             frame.size.width = 160.0f;
+                             frame.size.width = cDefaultWidth;
                              self.frame = frame;
                          } completion:^(BOOL finished) {
                              if (finished) {
@@ -67,7 +54,7 @@
                          }];
     } else {
         CGRect frame = self.frame;
-        frame.size.width = 160.0f;
+        frame.size.width = cDefaultWidth;
         self.frame = frame;
         if (completionBlock) {
             completionBlock();
@@ -98,6 +85,15 @@ completionBlock:(ALCompletionBlock)completionBlock {
             completionBlock();
         }
     }
+}
+
++ (CGFloat)defaultWidth {
+    // child class implement
+    return cDefaultWidth;
+}
++ (CGFloat)defaultHeight {
+    // child class implement
+    return cDefaultHeight;
 }
 
 @end

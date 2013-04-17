@@ -22,8 +22,18 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor clearColor];
+        _textLabel = [[UILabel alloc] init];
+        _textLabel.backgroundColor = [UIColor clearColor];
+        [self addSubview:_textLabel];
     }
     return self;
+}
+
+- (void)setText:(NSString *)text {
+    _text = text;
+    _textLabel.text = text;
+    [_textLabel sizeToFit];    
 }
 
 - (void)showInView:(UIView *)view
@@ -87,5 +97,15 @@ completionBlock:(ALCompletionBlock)completionBlock {
     // Drawing code
 }
 */
+
+
++ (CGFloat)defaultWidth {
+    // child class implement
+    return 0.0f;
+}
++ (CGFloat)defaultHeight {
+    // child class implement
+    return 0.0f;
+}
 
 @end

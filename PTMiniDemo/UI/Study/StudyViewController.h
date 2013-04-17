@@ -27,10 +27,12 @@ typedef enum {
 @property (nonatomic, strong) Item *item;
 @property (nonatomic, strong) NSArray *options;
 @property (nonatomic, strong) NSArray *optionViews;
+@property (nonatomic) BOOL presentOptionsAfterPlayingAudio;
+@property (nonatomic) NSTimeInterval cuedTime;
 
 - (id)initWithCatalog:(Catalog *)catalog;
 - (void)presentNextItemAnimated:(BOOL)animated;
-- (void)presentOptionViewsAnimated:(BOOL)animaged;
+- (void)presentOptionViewsAnimated:(BOOL)animated;
 - (void)openItemDetailViewAnimated:(BOOL)animated;
 - (void)dockItemDetailViewAnimated:(BOOL)animated;
 

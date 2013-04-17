@@ -10,6 +10,9 @@
 
 @interface UIImage (ptmini)
 
++ (UIImage *)piRoundedRectImageWithSize:(CGSize)size
+                              fillColor:(UIColor *)fillColor
+                           cornerRadius:(CGFloat)radius;
 + (UIImage *)piStretchableRoundedRectImageWithCornerRadius:(CGFloat)cornerRadius
                                                  lineWidth:(CGFloat)lineWidth
                                                strokeColor:(UIColor *)strokeColor

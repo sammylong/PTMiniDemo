@@ -13,7 +13,6 @@
 #import "NSMutableArray+Apexlearn.h"
 
 
-static const NSTimeInterval cCuedTime = 2.0;
 static const CGFloat cItemDetailViewRelativePositionOnDock = 0.5;
 static const CGFloat cItemDetailViewAnimationDuration = 0.25;
 static const int cNumberOfOption = 4;
@@ -75,14 +74,22 @@ static const int cNumberOfOption = 4;
         self.item = item;
         self.item.lastStudiedDate = [NSDate date];
         [self.items removeObject:item];
-        [self.itemDetailView setImage: [UIImage imageNamed:item.imageName]
-                             animated: animated];
+        if (item.imageName) {
+            [self.itemDetailView setImage: [UIImage imageNamed:item.imageName]
+                                 animated: animated];
+        }
+        if (item.audioName) {
+            self.itemDetailView.audioName = item.audioName;
+            [self.itemDetailView play];
+        }
         self.mode = eStudyViewModeCueing;
-        // schedule display of options
-        StudyViewController *weakSelf = self;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, cCuedTime * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            [weakSelf presentOptionViewsAnimated:YES];
-        });
+        if (self.presentOptionsAfterPlayingAudio == NO) {
+            // schedule display of options
+            StudyViewController *weakSelf = self;
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, self.cuedTime * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                [weakSelf presentOptionViewsAnimated:YES];
+            });
+        }
     }
 }
 
@@ -168,6 +175,14 @@ static const int cNumberOfOption = 4;
     }
 }
 
+- (void)itemDetailViewDidFinishPlaying:(ItemDetailView *)detailView {
+    if (self.presentOptionsAfterPlayingAudio) {
+        if (self.mode == eStudyViewModeCueing) {
+            [self presentOptionViewsAnimated:YES];
+        }
+    }
+}
+
 
 #pragma mark OptionViewDelegate
 
@@ -181,6 +196,8 @@ static const int cNumberOfOption = 4;
     if (CGRectIntersectsRect(optionView.frame, self.itemDetailView.frame)) {
         NSLog(@"dragged and dropped option view");
         self.mode = eStudyViewModeRecalled;
+        // TODO animate the optionView into placeHolder
+        
         // TODO lock and dismiss all other option view
         for (OptionView *optionView in self.optionViews) {
             optionView.locked = YES;

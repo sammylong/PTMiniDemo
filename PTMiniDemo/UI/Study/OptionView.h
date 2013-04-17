@@ -14,6 +14,7 @@
 
 @property (nonatomic, weak)id<OptionViewDelegate> delegate;
 @property (nonatomic) NSInteger index;
+@property (nonatomic, strong) UILabel *textLabel;
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic) BOOL locked;
 
@@ -27,6 +28,8 @@
           delay:(NSTimeInterval)delay
 completionBlock:(ALCompletionBlock)completionBlock;
 
++ (CGFloat)defaultWidth;
++ (CGFloat)defaultHeight;
 @end
 
 @protocol OptionViewDelegate <NSObject>

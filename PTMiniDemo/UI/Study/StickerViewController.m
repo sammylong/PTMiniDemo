@@ -8,6 +8,8 @@
 
 #import "StickerViewController.h"
 #import "StickerView.h"
+#import "UIColor+ptmini.h"
+#import "UIImage+ptmini.h"
 
 
 static const int cNumberOfOption = 4;
@@ -18,19 +20,22 @@ static const int cNumberOfOption = 4;
 
 @implementation StickerViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    // placeHolder
+    // TODO fix this magic number
+    UIColor *strokeColor = [UIColor piGrayColor];
+    UIColor *fillColor = [UIColor whiteColor];
+    CGSize size = CGSizeMake(  [StickerView defaultWidth]
+                             , [StickerView defaultHeight]);
+    // TODO strokeColor
+    UIImage *image = [UIImage piRoundedRectImageWithSize:size fillColor:fillColor cornerRadius:2.0f];
+
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    CGPoint center = CGPointMake( CGRectGetMidX(self.itemDetailView.bounds), 60.0f);
+    imageView.center = center;
+    self.itemDetailView.placeHolder = imageView;
 }
 
 - (void)presentOptionViewsAnimated:(BOOL)animated {

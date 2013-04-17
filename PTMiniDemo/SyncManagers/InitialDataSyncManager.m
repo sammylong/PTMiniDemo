@@ -74,16 +74,51 @@
                 // no item found, create one
                 item = [[Item alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:context];
                 item.answer = answer;
+                item.lastStudiedDate = [NSDate dateWithTimeIntervalSince1970:0.0];
             }
             NSString *imageName = [flagDefinition objectForKey:@"imageName"];
             item.imageName = imageName;
             NSString *continent = [flagDefinition objectForKey:@"continent"];
             NSString *detail = [NSString stringWithFormat:@"%@ is in %@", answer, continent];
             item.detail = detail;
-            item.lastStudiedDate = [NSDate dateWithTimeIntervalSince1970:0.0];
             item.catalog = catalog;
         }
         
+        // fetch catalog: 'Flags'
+        fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Catalog"];
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"name LIKE %@", @"Numbers"];
+        fetchRequest.fetchLimit = 1;
+        error = nil;
+        catalog = [[context executeFetchRequest:fetchRequest error:&error] lastObject];
+        
+        NSURL *numberDefinitionsURL = [[NSBundle mainBundle] URLForResource:@"NumberDefinitions" withExtension:@"plist"];
+        NSArray *numberDefinitions = [[NSArray alloc] initWithContentsOfURL:numberDefinitionsURL];
+        for (NSDictionary *numberDefinition in numberDefinitions) {
+            NSString *answer = [numberDefinition objectForKey:@"digit"];
+            // fetch this item
+            NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Item" inManagedObjectContext:context];
+            NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+            fetchRequest.entity = entityDescription;
+            fetchRequest.predicate = [NSPredicate predicateWithFormat:@"answer LIKE %@", answer];
+            fetchRequest.fetchLimit = 1;
+            NSError __autoreleasing *error = nil;
+            Item *item = [[context executeFetchRequest:fetchRequest error:&error] lastObject];
+            if (error) {
+                NSLog(@"Error fetching item %@ - %@", error, error.userInfo);
+            }
+            if (item == nil) {
+                // no item found, create one
+                item = [[Item alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:context];
+                item.answer = answer;
+                item.lastStudiedDate = [NSDate dateWithTimeIntervalSince1970:0.0];
+            }
+            // populate item
+            item.audioName = [NSString stringWithFormat:@"%@.mp3", answer];
+            NSString *spelling = [numberDefinition objectForKey:@"spelling"];
+            item.detail = [NSString stringWithFormat:@"%@ is spelled as %@", answer, spelling];
+            // wire catalog
+            item.catalog = catalog;
+        }
         // save
         error = nil;
         [context save:&error];
