@@ -238,6 +238,7 @@ static const int cNumberOfOption = 4;
         OptionView *optionView = [self.optionViews objectAtIndex:index];
         OptionView *answerView = nil;
         for (OptionView *ov in self.optionViews) {
+            NSLog(@"option text %@", ov.text);
             if ([ov.text isEqualToString:self.item.answer]) {
                 answerView = ov;
                 break;
@@ -245,7 +246,7 @@ static const int cNumberOfOption = 4;
         }
         [optionView dismiss:YES
                    duration:0.4
-                      delay:0.2 // after the options are dismissed
+                      delay:0.2
             completionBlock:^{
                 // set answer view
                 weakSelf.itemDetailView.answerView = answerView;

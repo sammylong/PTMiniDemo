@@ -73,6 +73,7 @@ completionBlock:(ALCompletionBlock)completionBlock {
                          animations:^{
                              self.alpha = 0.0f;
                          } completion:^(BOOL finished) {
+                             [self removeFromSuperview];
                              if (finished) {
                                  if (completionBlock) {
                                      completionBlock();

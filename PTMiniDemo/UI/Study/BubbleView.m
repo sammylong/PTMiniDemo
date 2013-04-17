@@ -57,12 +57,9 @@ static const CGFloat cDefaultHeight = cDefaultWidth;
         completion:(ALCompletionBlock)completionBlock {
     if (animated) {
         CGFloat factor = cMinimumScale;
-        // it could be that the view is already animating, and has been added to its superview
-        if (self.superview == nil) {
-            [view addSubview:self];
-            // shrink the view to really small, prepare it to expand
-            self.transform = CGAffineTransformMakeScale(factor, factor);
-        }
+        // shrink the view to really small, prepare it to expand
+        self.transform = CGAffineTransformMakeScale(factor, factor);
+        [view addSubview:self];
         [UIView animateWithDuration:duration
                               delay:delay
                             options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState
@@ -77,9 +74,9 @@ static const CGFloat cDefaultHeight = cDefaultWidth;
                              }
                          }];
     } else {
-        if (self.superview == nil) {
-            [view addSubview:self];
-        }
+        CGFloat factor = 1.0f;
+        self.transform = CGAffineTransformMakeScale(factor, factor);
+        [view addSubview:self];
         if (completionBlock) {
             completionBlock();
         }
